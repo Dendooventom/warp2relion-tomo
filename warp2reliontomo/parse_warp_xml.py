@@ -42,8 +42,11 @@ def parse_xml(node):
         if not text:
             return {}
         # parse text that contains data points into np.arrays
-        points = np.asarray([p.split('|') for p in text.split(';')],
-                            dtype=np.float)
+        try:
+            points = np.asarray([p.split('|') for p in text.split(';')],
+                                dtype=np.float)
+        except:
+            points = np.array(text.split('\n'))
         node_content = points
 
     return {node_name: node_content}
