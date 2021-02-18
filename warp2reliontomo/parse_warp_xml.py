@@ -1,15 +1,4 @@
-from xml.dom.minidom import parse
-
 import numpy as np
-
-
-def xml2dict(xml_path):
-    """
-    parse an xml metadata file of a Warp tilt-series image
-    return a dictionary containing the metadata
-    """
-    document = parse(str(xml_path))
-    return parse_xml_node(document)
 
 
 def parse_xml_node(node):
